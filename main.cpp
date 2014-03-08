@@ -8,6 +8,19 @@
 using namespace std;
 
 
+class truple {
+public:
+    int parse;
+    int getTo;
+    int getFrom;
+    int getWeight;
+    
+private:
+    int to;
+    int from;
+    int weight;
+
+};
 
 	void union(int, int);
 	int find(int);
