@@ -73,13 +73,19 @@ int main()
         
         //recieve number of edges from user
         cin >> edge_num;
-        for(k=0;k<edge_num;k++)
+        
+        //get the truples into an array called input with k = to, k+1 = from, k+2 = weight
+        for(k=0;k<edge_num;k+=3)
         {
             getline(cin, input);
+            
             stringstream ss(input);
+            
             ss >> i1, i2, i3;
             
-            
+            input[k] = i1;
+            input[k+1] = i2;
+            input[k+2] = i3;
         }
         
         //make new node from each array
