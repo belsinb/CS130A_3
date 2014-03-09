@@ -1,5 +1,6 @@
 //the main code yo.
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <cstdio>
 #include "minheap.h"
@@ -14,7 +15,9 @@ public:
     int getTo;
     int getFrom;
     int getWeight;
-    
+    void setTo;
+    void setFrom;
+    void setWeight;
 private:
     int to;
     int from;
@@ -26,13 +29,35 @@ private:
 	int find(int);
 
 
+
+void truple::setTo(int x)
+{
+    to = x;
+}
+
+void truple::setFrom(int x)
+{
+    from = x;
+}
+
+void truple::setWeight(int x)
+{
+    weight = x;
+}
+
+//=======================================MAIN LOOP======================================
+
+
 int main()
 	{
+        int i1, i2, i3;
+        
 		int n = 1;
         int k = -5;
         int edge_num;
         int j;
-        
+        int input[1200];
+        string input;
         
         //recieve number of nodes from user
         cin >> n;
@@ -50,10 +75,14 @@ int main()
         cin >> edge_num;
         for(k=0;k<edge_num;k++)
         {
-            //cin >> a new node each time somehow
+            getline(cin, input);
+            stringstream ss(input);
+            ss >> i1, i2, i3;
+            
+            
         }
         
-        
+        //make new node from each array
 		//get n (the number of nodes) from stdin
 
 		//node *x = new node[n]();
@@ -61,7 +90,7 @@ int main()
 		return 0;
 	}
 
-
+//=======================================================================================
     
 
 	void union(int* x, int a, int b) {
@@ -72,3 +101,6 @@ int main()
 
 		// ...
 }
+
+
+
