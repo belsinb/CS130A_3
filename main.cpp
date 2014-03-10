@@ -30,7 +30,7 @@ int main()
         int edge_num;
         
         //initialize MinHeap
-        MinHeap *mh = new MinHeap(edge_num);
+        MinHeap *ah = new MinHeap(edge_num);
         
         string input;
 
@@ -63,7 +63,7 @@ int main()
 
             ss >> i1, i2, i3;
 
-            mh->insert(new truple(i1, i2, i3));
+            ah->insert(new truple(i1, i2, i3));
 
         }
 
@@ -71,7 +71,7 @@ int main()
 
         // pop out truple from minheap
         for(k=1;k<edge_num;k++) {
-            truple *t = mh->pop();
+            truple *t = ah->pop();
             union(sets, t->getTo(), t->getFrom());
         }
 

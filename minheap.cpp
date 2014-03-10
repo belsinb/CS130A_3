@@ -23,7 +23,7 @@ Truple * MinHeap::pop(){
         mh[1]=mh[l]; //put the last node value in the root
         mh[l] = NULL;
         l--;           //decrement the length
-        perDown(1);
+        percDown(1);
     }
     return tmp;
 }
