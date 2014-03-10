@@ -101,7 +101,7 @@ int main()
             x[bRoot] += x[aRoot];
             x[aRoot] = bRoot;
         }
-        cout << getTo() << " " << getFrom() << endl;
+        cout << a << " " << b << endl;
 
 }
 
