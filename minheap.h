@@ -9,7 +9,7 @@ public:
 	//constructor
 	MinHeap();
     //add function
-    void insert(Truple*);
+    void insert(truple*);
 
     //remove function
     truple * pop();
