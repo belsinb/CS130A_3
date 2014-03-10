@@ -19,7 +19,7 @@ private:
     void percDown(int);
     void percUp(int, char);
     //sets up the minheap as array of tries
-    truple *mh; // <- is this ok??
+    truple *mh[1200/*how do we get edge_num in here?*/]; // <- is this ok??
     void swap(int, int);
     
     int l;
