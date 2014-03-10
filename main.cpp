@@ -12,7 +12,7 @@ using namespace std;
 
 
 
-	void union(int *, int, int);
+	void union_f(int *, int, int);
 	int find(int *, int);
 
 
@@ -44,7 +44,8 @@ int main()
             else
                 sets[k] = -1;
         }*/
-        int *sets = new int[n](-1); //initalize our array
+        int *sets = new int[n](-1); //<- i get weird syntax error from this:
+                                    //ISO C++ forbids initialization in array new
         sets[0] = 0;
 
         //recieve number of edges from user
@@ -74,7 +75,7 @@ int main()
         // pop out truple from minheap
         for(k=1;k<edge_num;k++) {
             truple *t = ah->pop();
-            union(sets, t->getTo(), t->getFrom());
+            union_f(sets, t->getTo(), t->getFrom());
 
         }
 
@@ -84,10 +85,10 @@ int main()
 
 //=======================================================================================
 
-	void union(int *x, int a, int b) {
+	void union_f(int *x, int a, int b) {
 		// find the roots of a and b
-        int aRoot = find(a);
-		int bRoot = find(b);
+        int aRoot = find(x, a);
+		int bRoot = find(x, b);
 
 		if (aRoot > 0 && aRoot == bRoot)
 			return; //a and b are already in the same set

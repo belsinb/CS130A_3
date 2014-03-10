@@ -7,7 +7,7 @@
 class MinHeap{
 public:
 	//constructor
-	MinHeap();
+	MinHeap(int);
     //add function
     void insert(truple*);
 
