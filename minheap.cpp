@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 MinHeap::MinHeap(int x) {
     l = 0;
     for(int k=0;k<(x+1);k++)
@@ -14,6 +13,24 @@ MinHeap::MinHeap(int x) {
     mh[0] = 0;
 }
 
+void MinHeap::insert(Trie *t) {
+    l++; //increment length
+    mh[l] = t; //insert at the last node in heap
+    //percolate up
+    
+    percUp(l);
+    
+}
+
+void MinHeap::percUp(int i){
+    if (i > 1 && l > 1) {
+        int parent_index = ((i-i%2)/2);
+        if (mh[i]->getWeight() < mh[parent_index]->getWeight()) {
+            swap(i, parent_index);
+            percUp(parent_index);
+        }
+    }
+}
 
 Truple * MinHeap::pop(){
     truple *tmp = NULL;
