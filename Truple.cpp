@@ -48,7 +48,7 @@ void truple::setWeight(int x)
     weight = x;
 }
 
-bool Truple::isLessThan(truple *t) {
+bool truple::isLessThan(truple *t) {
     if (f < t->getWeight())
         return true;
     else if (f == t->getWeight() && (int)c < (int)t->getWeight())
