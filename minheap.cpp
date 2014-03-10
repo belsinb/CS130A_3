@@ -55,3 +55,13 @@ void MinHeap::percDown(int i){
     }
     
 }
+
+void MinHeap::swap(int x, int y) {
+    Truple* tmp;
+    //temp pointer takes x's value
+    tmp = mh[x];
+    //x takes y's value
+    mh[x] = mh[y];
+    //y takes temp's value AKA x's old value
+    mh[y] = tmp;
+}
