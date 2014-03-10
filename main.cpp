@@ -87,8 +87,8 @@ int main()
 
 	void union_f(int *x, int a, int b) {
 		// find the roots of a and b
-        int aRoot = find(x, a);
-		int bRoot = find(x, b);
+        int aRoot = find(x, a); //<- i changed these to include both parameters
+		int bRoot = find(x, b); // is that correct?
 
 		if (aRoot > 0 && aRoot == bRoot)
 			return; //a and b are already in the same set
