@@ -33,13 +33,13 @@ void MinHeap::percDown(int i){
     int right = ((2*i)+1);
     if(right <= l)
     {
-        if((mh[left]->getWeight() < mh[right]->getF()) && (mh[i]->getF() > mh[left]->getF()))
+        if((mh[left]->getWeight() < mh[right]->getWeight()) && (mh[i]->getWeight() > mh[left]->getWeight()))
         {
             swap(left, i);
             percDown(left);
         }
         
-        if((mh[left]->getF() >= mh[right]->getF()) && (mh[i]->getF() > mh[right]->getF()))
+        if((mh[left]->getWeight() >= mh[right]->getWeight()) && (mh[i]->getWeight() > mh[right]->getWeight()))
         {
             swap(right, i);
             percDown(right);
@@ -47,7 +47,7 @@ void MinHeap::percDown(int i){
     }
     else if(left <= l)
     {
-        if(mh[i]->getF() > mh[left]->getF())
+        if(mh[i]->getWeight() > mh[left]->getWeight())
         {
             swap(left, i);
         }
