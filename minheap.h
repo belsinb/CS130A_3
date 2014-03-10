@@ -1,5 +1,30 @@
 //the minheap helper file
 #ifndef MINHEAP_H
 #define MINHEAP_H
+#include "Truple.h"
+
+
+class MinHeap{
+public:
+	//constructor
+	MinHeap();
+    //add function
+    void insert(Truple*);
+
+    //remove function
+    truple * pop();
+    
+    
+private:
+    void percDown(int);
+    void percUp(int, char);
+    //sets up the minheap as array of tries
+    
+    void swap(int, int);
+    
+    int l;
+    
+};
+
 
 #endif

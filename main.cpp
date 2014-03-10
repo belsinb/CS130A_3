@@ -5,47 +5,18 @@
 #include <cstdio>
 #include "minheap.h"
 #include "node.h"
+#include "Truple.h"
 
 using namespace std;
 
 
-class truple {
-public:
-    int parse;
-    int getTo();
-    int getFrom();
-    int getWeight();
-    void setTo(int);
-    void setFrom(int);
-    void setWeight(int);
-    truple() = default;
-    truple(int t, int f, int w);
-private:
-    int to;
-    int from;
-    int weight;
 
-};
 
 	void union(int *, int, int);
 	int find(int *, int);
 
 
 
-void truple::setTo(int x)
-{
-    to = x;
-}
-
-void truple::setFrom(int x)
-{
-    from = x;
-}
-
-void truple::setWeight(int x)
-{
-    weight = x;
-}
 
 //=======================================MAIN LOOP======================================
 
@@ -57,7 +28,10 @@ int main()
 		int n = 1;
         int k = -5;
         int edge_num;
-        int j;
+        
+        //initialize MinHeap
+        MinHeap *mh = new MinHeap(edge_num);
+        
         string input;
 
         //recieve number of nodes from user
@@ -76,7 +50,7 @@ int main()
 
         //recieve number of edges from user
         cin >> edge_num;
-
+        
         //TODO: initialize minHeap mh = new minHeap(n)
 
         //get the truples into an array called input with k = to, k+1 = from, k+2 = weight
