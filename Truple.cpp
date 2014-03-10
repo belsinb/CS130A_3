@@ -9,6 +9,7 @@ truple::truple()
     w = -5;
 }
 
+//did I do this right??
 truple::truple(int t, int f, int w)
 {
     setTo(t);
