@@ -29,8 +29,7 @@ int main()
         int k = -5;
         int edge_num;
         
-        //initialize MinHeap
-        MinHeap *ah = new MinHeap(edge_num);
+        
         
         string input;
 
@@ -52,7 +51,10 @@ int main()
         cin >> edge_num;
         
         //TODO: initialize minHeap mh = new minHeap(n)
+        //initialize MinHeap
+        MinHeap *ah = new MinHeap(edge_num);//we initliaze with number of edges and not number of nodes, correct?
 
+        
         //get the truples into an array called input with k = to, k+1 = from, k+2 = weight
         // why not create a truple and add it to the min heap?
         for(k=0;k<edge_num;k++)
@@ -73,6 +75,7 @@ int main()
         for(k=1;k<edge_num;k++) {
             truple *t = ah->pop();
             union(sets, t->getTo(), t->getFrom());
+
         }
 
 
@@ -98,8 +101,8 @@ int main()
             x[bRoot] += x[aRoot];
             x[aRoot] = bRoot;
         }
+        cout << getTo() << " " << getFrom() << endl;
 
-        //TODO: print to stdout
 }
 
     int find(int *x, int a) {
