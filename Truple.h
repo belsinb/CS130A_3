@@ -13,6 +13,7 @@ public:
     void setTo(int);
     void setFrom(int);
     void setWeight(int);
+    bool isLessThant(truple*)
     truple() = default;
     truple(int t, int f, int w);
     

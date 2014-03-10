@@ -65,3 +65,8 @@ void MinHeap::swap(int x, int y) {
     //y takes temp's value AKA x's old value
     mh[y] = tmp;
 }
+
+int MinHeap::length() {
+    
+    return l;
+}
