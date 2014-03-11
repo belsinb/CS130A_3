@@ -28,34 +28,31 @@ int main()
 		int n = 1;
         int k = -5;
         int edge_num;
-        
-        
-        
+
+
+
         string input;
 
         //recieve number of nodes from user
         cin >> n;
         //create array of disjoint sets
-        /*int sets[n+1]
+        int *sets = new int[n]();
         for(k=0;k<n;k++)
         {
             if(k=0)
-                sets[k] = -2;
+                sets[k] = 0;
             else
                 sets[k] = -1;
-        }*/
-        int *sets = new int[n](-1); //<- i get weird syntax error from this:
-                                    //ISO C++ forbids initialization in array new
-        sets[0] = 0;
+        }
 
         //recieve number of edges from user
         cin >> edge_num;
-        
+
         //TODO: initialize minHeap mh = new minHeap(n)
         //initialize MinHeap
         MinHeap *ah = new MinHeap(edge_num);//we initliaze with number of edges and not number of nodes, correct?
 
-        
+
         //get the truples into an array called input with k = to, k+1 = from, k+2 = weight
         // why not create a truple and add it to the min heap?
         for(k=0;k<edge_num;k++)

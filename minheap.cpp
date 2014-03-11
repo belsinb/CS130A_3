@@ -5,21 +5,22 @@
 using namespace std;
 
 MinHeap::MinHeap(int x) {
+    mh = new *truple[x+1];
     l = 0;
     for(int k=0;k<(x+1);k++)
     {
         mh[k]=NULL;
     }
-    mh[0] = 0;
+    mh[0] = new truple();
 }
 
-void MinHeap::insert(Trie *t) {
+void MinHeap::insert(truple *t) {
     l++; //increment length
     mh[l] = t; //insert at the last node in heap
     //percolate up
-    
+
     percUp(l);
-    
+
 }
 
 void MinHeap::percUp(int i){
@@ -34,7 +35,7 @@ void MinHeap::percUp(int i){
 
 Truple * MinHeap::pop(){
     truple *tmp = NULL;
-    if(l>0)
+    if(l>0)z
     {
         tmp = mh[1]; //put root in tmp truple to return the value
         mh[1]=mh[l]; //put the last node value in the root
@@ -55,7 +56,7 @@ void MinHeap::percDown(int i){
             swap(left, i);
             percDown(left);
         }
-        
+
         if((mh[left]->getWeight() >= mh[right]->getWeight()) && (mh[i]->getWeight() > mh[right]->getWeight()))
         {
             swap(right, i);
@@ -68,9 +69,7 @@ void MinHeap::percDown(int i){
         {
             swap(left, i);
         }
-        
     }
-    
 }
 
 void MinHeap::swap(int x, int y) {
@@ -81,9 +80,4 @@ void MinHeap::swap(int x, int y) {
     mh[x] = mh[y];
     //y takes temp's value AKA x's old value
     mh[y] = tmp;
-}
-
-int MinHeap::length() {
-    
-    return l;
 }
