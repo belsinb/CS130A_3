@@ -1,5 +1,5 @@
 #include <iostream>
-#include "MinHeap.h"
+#include "minheap.h"
 #include "math.h"
 #include "Truple.h"
 
