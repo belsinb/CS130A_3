@@ -4,17 +4,17 @@
 
 all: prog3
 
-prog3: main.o Truple.o MinHeap.o
-	g++ -g main.o Truple.o MinHeap.o -o prog3
+prog3: sbSocialSpan.o Truple.o minheap.o
+	g++ -g sbSocialSpan.o Truple.o minheap.o -o prog3
 
-main.o: main.cpp
-	g++ -g -c main.cpp
+sbSocialSpan.o: sbSocialSpan.cpp
+	g++ -g -c sbSocialSpan.cpp
 
-Trie.o: Truple.cpp Truple.h
+Truple.o: Truple.cpp Truple.h
 	g++ -g -c Truple.cpp
 
-MinHeap.o: MinHeap.cpp MinHeap.h
-	g++ -g -c MinHeap.cpp
+minheap.o: minheap.cpp minheap.h
+	g++ -g -c minheap.cpp
 
 clean:
 	rm -rf *.o prog3
