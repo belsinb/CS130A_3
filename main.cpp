@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <cstdio>
+#include <fstream>
 #include "minheap.h"
 //#include "node.h"
 #include "Truple.h"
@@ -21,7 +22,7 @@ using namespace std;
 //=======================================MAIN LOOP======================================
 
 
-int main()
+int main(int argc, char *argv[])
 	{
         int i1, i2, i3;
 
@@ -29,17 +30,18 @@ int main()
         int k = -5;
         int edge_num;
 
-
-
         string input;
+
+        ifstream in(argv[1]);
+        cin.rdbuf(in.rdbuf()); //redirect std::cin to in.txt!
 
         //recieve number of nodes from user
         cin >> n;
         //create array of disjoint sets
-        int *sets = new int[n]();
+        int *sets = new int[n+1]();
         for(k=0;k<n;k++)
         {
-            if(k=0)
+            if(k==0)
                 sets[k] = 0;
             else
                 sets[k] = -1;
@@ -52,6 +54,7 @@ int main()
         //initialize MinHeap
         MinHeap *ah = new MinHeap(edge_num);//we initliaze with number of edges and not number of nodes, correct?
 
+        getline(cin, input); //get rid of empty line from cin
 
         //get the truples into an array called input with k = to, k+1 = from, k+2 = weight
         // why not create a truple and add it to the min heap?
@@ -59,23 +62,25 @@ int main()
         {
             getline(cin, input);
 
+            //cout << "\"" << input << "\"";
+
             stringstream ss(input);
 
-            ss >> i1, i2, i3;
+            ss >> i1 >> i2 >> i3;
+            //cout << i1 << "," << i2 << "," << i3 << endl;
 
             ah->insert(new truple(i1, i2, i3));
-
+            //ah->printHeap();
         }
 
 
 
         // pop out truple from minheap
-        for(k=1;k<edge_num;k++) {
+        for(k=1;k<edge_num+1;k++) {
             truple *t = ah->pop();
+            //ah->printHeap();
             union_f(sets, t->getTo(), t->getFrom());
-
         }
-
 
 		return 0;
 	}

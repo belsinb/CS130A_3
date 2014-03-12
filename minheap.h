@@ -14,12 +14,13 @@ public:
     //remove function
     truple * pop();
 
+    void printHeap();
 
 private:
     void percDown(int);
-    void percUp(int, char);
+    void percUp(int);
     //sets up the minheap as array of tries
-    truple *mh; // <- is this ok??
+    truple **mh; // <- is this ok??
     void swap(int, int);
 
     int l;

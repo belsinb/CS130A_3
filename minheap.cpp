@@ -1,11 +1,12 @@
 #include <iostream>
 #include "MinHeap.h"
 #include "math.h"
+#include "Truple.h"
 
 using namespace std;
 
 MinHeap::MinHeap(int x) {
-    mh = new *truple[x+1];
+    mh = new truple*[x+1];
     l = 0;
     for(int k=0;k<(x+1);k++)
     {
@@ -33,9 +34,9 @@ void MinHeap::percUp(int i){
     }
 }
 
-Truple * MinHeap::pop(){
+truple * MinHeap::pop(){
     truple *tmp = NULL;
-    if(l>0)z
+    if(l>0)
     {
         tmp = mh[1]; //put root in tmp truple to return the value
         mh[1]=mh[l]; //put the last node value in the root
@@ -73,11 +74,18 @@ void MinHeap::percDown(int i){
 }
 
 void MinHeap::swap(int x, int y) {
-    Truple* tmp;
+    truple* tmp;
     //temp pointer takes x's value
     tmp = mh[x];
     //x takes y's value
     mh[x] = mh[y];
     //y takes temp's value AKA x's old value
     mh[y] = tmp;
+}
+
+void MinHeap::printHeap() {
+    for(int i = 1; i <= l; i++) {
+        mh[i]->print();
+    }
+    cout << endl;
 }

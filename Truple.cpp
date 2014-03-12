@@ -1,12 +1,12 @@
 #include <iostream>
-#include <Truple.h>
+#include "Truple.h"
 
 //did I do this right??
 truple::truple()
 {
-    t = -5;
-    f = -5;
-    w = -5;
+    to = -5;
+    from = -5;
+    weight = -5;
 }
 
 //did I do this right??
@@ -49,10 +49,14 @@ void truple::setWeight(int x)
 }
 
 bool truple::isLessThan(truple *t) {
-    if (f < t->getWeight())
-        return true;
-    else if (f == t->getWeight() && (int)c < (int)t->getWeight())
+    if (weight < t->getWeight())
         return true;
     else
         return false;
+    // else if (weight == t->getWeight() && (int)c < (int)t->getWeight())
+    //     return true;
+}
+
+void truple::print() {
+    cout << "(" << to << "," << from << "," << weight << ")";
 }
